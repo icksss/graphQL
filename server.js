@@ -133,8 +133,9 @@ const resolvers = {
             .then(res => res.json())
             .then(json => json.data.movies);
         },
-        movie(_, {movieId}){
-            return fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${movieId}`)
+        movie(root, {id}){
+            console.log("movie called! id : ", id,root);
+            return fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
             .then(res => res.json())
             .then(json => json.data.movie);
         }
